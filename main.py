@@ -117,3 +117,81 @@ print("-----assignment 3.4------")
 n = int(input("write your Pythagorean triple limit: "))
 py_triples()
 print("-----------------------------------------------")
+
+
+#Berk Kalelioğlu - 17050433 - assginment 4.1
+
+def plotfunc41():
+    x = np.linspace(1.5, 2, 100)
+    y = x ** 4 - x - 10
+    plt.plot(x, y)
+    plt.show()
+plotfunc41()
+
+#Berk Kalelioğlu - 17050433 - assginment 4.2
+
+def bisection42(f, a, b, N):
+    if f(a)*f(b) >= 0:
+        print("Bisection method fails.")
+        return None
+    a_n = a
+    b_n = b
+    for n in range(1,N+1):
+        m_n = (a_n + b_n)/2
+        f_m_n = f(m_n)
+        if f(a_n)*f_m_n < 0:
+            a_n = a_n
+            b_n = m_n
+        elif f(b_n)*f_m_n < 0:
+            a_n = m_n
+            b_n = b_n
+        elif f_m_n == 0:
+            print("Found exact solution.")
+            return m_n
+        else:
+            print("Bisection method fails.")
+            return None
+    return (a_n + b_n)/2
+
+f = lambda x: x**4 - x - 10
+print("-----assignment 4.2------")
+print(bisection42(f,1.5, 2, 5))
+print("-----------------------------------------------")
+
+
+#Berk Kalelioğlu - 17050433 - assginment 4.3
+def plotfunc43():
+    x = np.linspace(0,1,100)
+    y = np.cos(x) - x*np.exp(x)
+    plt.plot(x, y)
+    plt.show()
+plotfunc43()
+
+#Berk Kalelioğlu - 17050433 - assginment 4.4
+def bisection44(f, a, b, N):
+    if f(a)*f(b) >= 0:
+        print("Bisection method fails.")
+        return None
+    a_n = a
+    b_n = b
+    for n in range(1,N+1):
+        m_n = (a_n + b_n)/2
+        f_m_n = f(m_n)
+        if f(a_n)*f_m_n < 0:
+            a_n = a_n
+            b_n = m_n
+        elif f(b_n)*f_m_n < 0:
+            a_n = m_n
+            b_n = b_n
+        elif f_m_n == 0:
+            print("Found exact solution.")
+            return m_n
+        else:
+            print("Bisection method fails.")
+            return None
+    return (a_n + b_n)/2
+f = lambda x: np.cos(x) - x*np.exp(x)
+
+print("-----assignment 4.4------")
+print(bisection44(f, 0, 1, 100))
+print("-----------------------------------------------")
